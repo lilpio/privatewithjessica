@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Content - Private with Jessica</title>
+    <link rel="stylesheet" href="content-style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">Private with Jessica</div>
+            <div class="nav-elements">
+                <div class="user-info">
+                    <span id="subscription-plan">Loading...</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="logout()">Logout</a></li>
+                    <li><a href="https://wa.me/16822287962" target="_blank">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <!-- Welcome Header -->
+            <div class="welcome-header">
+                <h1>Welcome to Your Exclusive Content</h1>
+                <p id="welcome-message"></p>
+            </div>
+
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <button class="filter-btn active" onclick="filterContent(event, 'all')">All</button>
+                <button class="filter-btn" onclick="filterContent(event, 'photos')">📸 Photos</button>
+                <button class="filter-btn" onclick="filterContent(event, 'videos')">🎥 Videos</button>
+            </div>
+
+            <!-- Content Gallery -->
+            <div class="gallery-container">
+                <!-- Photo Example -->
+                <div class="content-item photo-item" data-type="photos">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/400x300?text=Exclusive+Photo+1" alt="Exclusive Photo">
+                        <div class="item-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Exclusive Moment</h3>
+                        <p>Premium • Added 2 days ago</p>
+                    </div>
+                </div>
+
+                <!-- Photo Example -->
+                <div class="content-item photo-item" data-type="photos">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/400x300?text=Exclusive+Photo+2" alt="Exclusive Photo">
+                        <div class="item-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Behind the Scenes</h3>
+                        <p>Premium • Added 3 days ago</p>
+                    </div>
+                </div>
+
+                <!-- Video Example -->
+                <div class="content-item video-item" data-type="videos">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/400x300?text=Exclusive+Video+1" alt="Exclusive Video">
+                        <div class="item-overlay">
+                            <span class="view-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Exclusive Video</h3>
+                        <p>Premium • Duration: 15 min</p>
+                    </div>
+                </div>
+
+                <!-- Photo Example -->
+                <div class="content-item photo-item" data-type="photos">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/400x300?text=Exclusive+Photo+3" alt="Exclusive Photo">
+                        <div class="item-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Personal Moments</h3>
+                        <p>Premium • Added 1 week ago</p>
+                    </div>
+                </div>
+
+                <!-- Video Example -->
+                <div class="content-item video-item" data-type="videos">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/400x300?text=Exclusive+Video+2" alt="Exclusive Video">
+                        <div class="item-overlay">
+                            <span class="view-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Live Stream Archive</h3>
+                        <p>Premium • Duration: 45 min</p>
+                    </div>
+                </div>
+
+                <!-- Photo Example -->
+                <div class="content-item photo-item" data-type="photos">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/400x300?text=Exclusive+Photo+4" alt="Exclusive Photo">
+                        <div class="item-overlay">
+                            <span class="view-icon">👁️</span>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <h3>Intimate Shots</h3>
+                        <p>Elite Only • Added today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Content Message -->
+            <div id="no-content" class="no-content" style="display: none;">
+                <p>🔒 No content available for this filter</p>
+            </div>
+
+            <!-- Loading Screen for view -->
+            <div id="content-viewer" class="content-viewer">
+                <span class="close-viewer" onclick="closeContentViewer()">&times;</span>
+                <div class="viewer-content">
+                    <img id="viewer-image" src="" alt="Content">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Private with Jessica. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="https://wa.me/16822287962" target="_blank">Contact Us</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="content-script.js"></script>
+</body>
+</html>
